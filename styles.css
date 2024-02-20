@@ -1,0 +1,85 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+}
+
+#bookList {
+    width: 100%; /* Set a fixed width for the book list */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#bookList li {
+    display: contents;
+}
+
+#bookList li div {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#bookForm {
+    width: 50%; /* Set a fixed width for the book form */
+    display: none;
+    padding: 20px;
+    background-color: #fff;
+    margin-left: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#bookForm label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#bookForm input[type="text"],
+#bookForm input[type="number"],
+#bookForm input[type="radio"] {
+    width: calc(100% - 16px);
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#bookForm input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#bookForm input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#newBookButton {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
