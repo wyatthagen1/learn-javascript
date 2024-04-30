@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content">
+        <div class="left-rail">
+            <div class="logo-banner">
+                <img class="logo-image" src="/images/watrboy_logo.png" alt="">
+            </div>
+        </div>
+        <div class="main">
+            <div class="header-text-section">
+                <div class="header-paragraph headline">Welcome to our company's website. We are a leading provider of innovative solutions that drive growth and efficiency for businesses across diverse industries. With a team of experts and a customer-centric approach</div>
+                <div class="header-paragraph-2 headline">You <em>know</em> you want to.</div>
+            </div>
+            <div class="form-container">
+                <div class="headline">Let's do this!</div>
+                <fieldset class="signup-form">
+                    <div class="column">
+                        <div class="col-item">
+                            <label for="first_name">FIRST NAME</label>
+                            <input type="text" id="first_name" name="first_name">
+                        </div>
+
+                        <div class="col-item">
+                            <label for="email">EMAIL</label>
+                            <input type="text" id="email" name="email">
+                        </div>
+
+                        <div class="col-item">
+                            <label for="password">PASSWORD</label>
+                            <input type="password" id="password" name="password" class="first-pass">
+                            <span id="error" style="color: red; display: none">*Passwords do not match</span>
+                        </div>
+                    </div>
+
+                    <div class="column">
+
+                        <div class="col-item">
+                            <label for="last_name">LAST NAME</label>
+                            <input type="text" id="last_name" name="last_name">
+                        </div>
+
+                        <div class="col-item">
+                            <label for="phone_number">PHONE NUMBER</label>
+                            <input type="text" id="phone_number" name="phone_number">
+                        </div>
+
+                        <div class="col-item">
+                            <label for="confirm_password">CONFIRM PASSWORD</label>
+                            <input type="password" name="confirm_password" id="confirm_password" class="confirm-pass">
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+
+
+            <div class="signup-button-section">
+                <button type="submit" class="submit-button">Create Account</button>
+                <div class="login-text">Already have an account? <a href="/login-screen">Log in</a></div>
+            </div>
+
+            <script>
+                const submitButton = document.getElementsByClassName('submit-button')[0];
+                submitButton.addEventListener('click', validPass);
+
+                function validPass(){
+                    const pass = document.getElementsByClassName('first-pass')[0].value;
+                    const confirmPass = document.getElementsByClassName('confirm-pass')[0].value;
+                    const errorMessage = document.getElementById('error');
+
+                    if (pass != confirmPass){
+                        errorMessage.style.display = 'block'
+                    }
+                    else{
+                        errorMessage.style.display = 'none'
+                    }
+
+                }
+                                
+            </script>
+
+
+        </div>
+    </div>
+</body>
+</html>
