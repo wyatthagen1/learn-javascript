@@ -3,11 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/main.js',
+    app: './src/main-refactored.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'RestaurantPage',
+      title: 'FlatNote',
       scriptLoading: 'defer',
       template: './src/index.html'
     }),
@@ -22,6 +22,10 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
     ],
   },

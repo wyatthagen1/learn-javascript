@@ -1,8 +1,45 @@
+class Controller{
+
+    constructor(){
+        this.projects = [];
+        this.activeProject;
+    }
+    
+    createTask(project,name,description,status,dueDate = null){
+        const newTask = new Task(name,description,status,dueDate)
+        project.appendTask(newTask)
+
+
+    }
+
+    createProject(name){
+        const newProject = new Project(name);
+        this.projects.push(newProject); 
+
+        return newProject; 
+    }
+
+    taskLookup(taskID){ //helper function for task lookup
+        for(let i=0; i< this.projects.length; i++){
+            let currentProject = this.projects[i];
+            for(let j=0; j < currentProject.tasks.length; j++){
+                if(currentProject.tasks[j].id === taskID){
+                    return currentProject.tasks[j];
+                }
+            }
+        }
+    }
+
+
+
+}
+
 class Project {
     constructor(name){
         this.__tasks = [];
         // this.__icon = rand(image) <--- come back later
         this.__numTasks = 0;
+        this.id = 1//Math.floor(Math.random() * (Math.floor(100000 + 1))); 
         
         if(typeof(name)=== "string"){
             this.__name = name
@@ -32,7 +69,7 @@ class Project {
             throw new Error('Name you are trying to set is not a string')
         }
     }
-    addTask(newTask){
+    appendTask(newTask){
         if(typeof(newTask)==="object"){
             this.__tasks.push(newTask);
             this.__numTasks++;
@@ -54,96 +91,13 @@ class Project {
 }
 
 class Task{
-    constructor(name,description,dueDate,type){
+    constructor(name,description,status,dueDate){
         this.name = name;
         this.description = description;
-        this.__dueDate = dueDate; 
-        this.type = type;
-        this.__status = 'Not Started';
+        this.dueDate = dueDate; 
+        this.status = status;
+        this.id = Math.floor(Math.random() * (Math.floor(100000 + 1)));
     }
-    get dueDate(){
-        return `Due: ${this.__dueDate}` // change later
-    }
-    set dueDate(newDate){
-        this.__dueDate = newDate // change later
-    }
-    get status(){
-        return `Task Status: ${this.__status}`;
-    }
-    set status(newStatus){
-        this.__status = newStatus; // change later
-    }
-
 }
 
-
-class Controller{
-
-    static completeTask(project,task){
-        project.removeTask(task);
-    //domRenderTask(task); // FLAG
-
-    }
-
-    static createTask(project,name,description,dueDate = null,type){
-        const newTask = new Task(name,description,dueDate,type)
-        project.addTask(newTask)
-        //domRenderTask(newtask) // FLAG
-
-    }
-
-    static updateTask(task,action,updatePayLoad,project){
-        switch(action){
-            case 'changeName':
-                task.name = updatePayLoad;
-                break;
-
-            case 'changeDescription':
-                task.description = updatePayLoad;
-                break;
-
-            case 'changeStatus':
-                task.status = updatePayLoad;
-                break;
-
-            case 'changeType':
-                task.type = updatePayLoad;
-                break;
-
-            default:
-                throw new Error('Task Action did not match possible actions')
-                break;
-        }
-        //domRenderTask(task);
-    }
-
-
-
-    static createProject(name,appData){
-        const newProject = new Project(name);
-        appData.projects.push(newProject); // is this weird that this class is being manipulated in another class?
-        //domRenderProjects();
-        return newProject; //FLAG 
-    }
-
-
-    static changeProjectName(project,name){
-        project.name = name;
-        //domRenderProjects();
-    }
-
-    static completeProject(project,appData){
-        appData.projects.splice(appData.projects.indexOf(project),1);
-        //domRenderProjects();
-    }
-
-
-
-}
-
-
-
-export{Project,Task, Controller}
-
-
-
+export {Task, Project, Controller}
