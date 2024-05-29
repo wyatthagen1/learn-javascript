@@ -5,8 +5,8 @@ class Controller{
         this.activeProject;
     }
     
-    createTask(project,name,description,status,dueDate = null){
-        const newTask = new Task(name,description,status,dueDate)
+    createTask(project,name,description,status,dueDate = null,id){
+        const newTask = new Task(name,description,status,dueDate,id)
         project.appendTask(newTask)
 
 
@@ -36,13 +36,13 @@ class Controller{
 
 class Project {
     constructor(name){
-        this.__tasks = [];
+        this.tasks = [];
         // this.__icon = rand(image) <--- come back later
         this.__numTasks = 0;
         this.id = 1//Math.floor(Math.random() * (Math.floor(100000 + 1))); 
         
         if(typeof(name)=== "string"){
-            this.__name = name
+            this.name = name
         }
         else{
             throw new Error('Name is not a string')
@@ -50,28 +50,9 @@ class Project {
 
     }
 
-    get name(){
-        return this.__name;   
-    }
-    get tasks(){
-        if(this.__tasks.length != 0){
-            return this.__tasks
-        }
-        else{
-            return this.__tasks // does there need to be some kind of check for 0 length?
-        }
-    }
-    set name(name){
-        if(typeof(name)=== "string"){
-            this.__name = name
-        }
-        else{
-            throw new Error('Name you are trying to set is not a string')
-        }
-    }
     appendTask(newTask){
         if(typeof(newTask)==="object"){
-            this.__tasks.push(newTask);
+            this.tasks.push(newTask);
             this.__numTasks++;
         }
         else{
@@ -91,12 +72,16 @@ class Project {
 }
 
 class Task{
-    constructor(name,description,status,dueDate){
+    constructor(name,description,status,dueDate,id=null){
         this.name = name;
         this.description = description;
         this.dueDate = dueDate; 
         this.status = status;
-        this.id = Math.floor(Math.random() * (Math.floor(100000 + 1)));
+        if(!id){
+            this.id = Math.floor(Math.random() * (Math.floor(100000 + 1)));
+        }else{
+            this.id = id
+        }
     }
 }
 

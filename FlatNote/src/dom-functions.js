@@ -55,10 +55,16 @@ function saveTask(appData){
     else if(currentState ==='create'){
         appData.createTask(appData.activeProject,enteredTaskName,enteredTaskDescription,enteredTaskStatus,enteredTaskDueDate);
     }
+    
+    // set local storage
+    const serializedAppData = JSON.stringify(appData);
+    localStorage.setItem('appData',serializedAppData);
+    
 
-
+    
     const dataModal = document.getElementsByClassName('modal')[0]; // close modal
     dataModal.style.display = "none";
+    console.log(appData)
 
     renderProject(appData,appData.activeProject);
 
