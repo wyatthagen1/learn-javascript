@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="content">
+        <div class="data-search">
+            <form id="input-form" action="">
+                <div class="form-fields">
+                    <label for="location">Where would you like to know the weather?</label>
+                    <br>
+                    <input type="text" id="location" name="location" placeholder="Santa Monica" required>
+                    <br>
+                    <span class="error" id="location-error" aria-live="polite"></span>
+                </div>
+                <button id="submit" type="submit">Submit</button>
+                <span class="error" id="submit-error" aria-live="polite"></span>
+            </form>
+        </div>
+        <div class="dashboard">
+            <div class="data-meta tile">
+            </div>
+            <div class="data-current tile">
+            </div>
+            <div class="data-wind tile">
+            </div>
+            <div class="data-air tile">
+            
+            </div>
+        </div>
+
+    </div>
+    <script src="main.js" type="module"></script>
+</body>
+</html>
