@@ -50,6 +50,7 @@ class Project {
 
     }
 
+
     appendTask(newTask){
         if(typeof(newTask)==="object"){
             this.tasks.push(newTask);

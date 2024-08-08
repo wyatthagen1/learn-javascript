@@ -1,0 +1,52 @@
+
+#my-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+
+}
+
+input{
+    width: 250px;
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 30px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+
+button{
+    background-color: black;
+    color: white;
+    border: 0px;
+    border-radius: 10px;
+    height: 35px;
+    width: 200px;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.error{
+    color: red;
+    font-size: 90%;
+}
+
+input.invalid {
+    border-color: #900;
+    background-color: #fdd;
+}
+
+input:focus:invalid {
+    outline: none;
+}
+
+
+.valid{
+    background-image: linear-gradient(to right, pink, lightgreen);
+}
+
+

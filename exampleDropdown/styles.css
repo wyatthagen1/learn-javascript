@@ -1,0 +1,133 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #202020;
+}
+
+
+
+.menu-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color:lightskyblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.svg-container{
+    height: auto;
+    width: 30px;
+}
+
+.dropdown-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    background-color: white;
+
+}
+
+.dropdown-object{
+    position: relative;
+}
+
+.dropdown-text{
+    font-weight: bold;
+    color: #87cefa;
+
+}
+
+
+.logo{
+    margin-right: auto;
+}
+
+
+.dropdown{
+    position: absolute;
+    width: 100%;
+    background-color: beige;
+    margin-top: -11px;
+    padding-top: 10px;
+    background-color: white;
+    border-radius: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    display: none;
+
+}
+
+/* images carousel section ---- */ 
+
+.forward-button, .back-button{
+    width: 40px;
+    height: auto;
+}
+
+.advance-container {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 1; /* Add a higher z-index to ensure it appears above the images */
+    gap: 10px
+}
+
+.carousel-div{
+    width: 100%;
+    position: relative;
+    height: auto;
+}
+
+img{
+    max-height: 500px;
+}
+
+.carousel-image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -250px);
+    height: 500px;
+    max-height: 500px;
+    max-width: 100%;
+    margin: 0 auto; /* Add this line */
+    display: block; /* Add this line */
+}
+
+.state-icon{
+    max-width: 20px;  
+    height: auto;
+}
+
+.state-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.image-background{
+    height: 500px;
+    width: auto;
+}
