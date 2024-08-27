@@ -1,0 +1,9 @@
+Each tile on the board has "connections" with at most 8 other tiles 
+based on the positions that the knight is available to move to move to with one move 
+
+hence those 8 tiles are "connections" in this data structure. 
+Tiles close to the edges will have less than 8 connections. 
+
+The question then is how to find the shortest distance on a graph of the connections between tiles (nodes) 
+
+each node will have a set of connections, you could calculate the #steps from a connection to the goal tile
